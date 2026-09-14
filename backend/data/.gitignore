@@ -1,0 +1,3 @@
+# Local auth user store (do not commit real user data)
+backend/data/users.json
+frontend/.env.local

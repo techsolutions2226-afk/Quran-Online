@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1a3550;
+  --color-navy-deep: #14293d;
+  --color-navy-soft: #243f5a;
+  --color-teal: #5c8f8a;
+  --color-teal-dark: #4a7a75;
+  --color-aqua: #e4f0ee;
+  --color-aqua-soft: #eef6f4;
+  --color-bg: #f7f6f3;
+  --color-surface: #ffffff;
+  --color-text: #2a3544;
+  --color-text-muted: #6b7685;
+  --color-text-soft: #8a93a0;
+  --color-border: #e2e6ea;
+  --color-border-soft: #eceef1;
+
+  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(26 53 80 / 0.04), 0 4px 16px rgb(26 53 80 / 0.04);
+  --shadow-card-hover: 0 2px 4px rgb(26 53 80 / 0.06), 0 8px 24px rgb(26 53 80 / 0.08);
+  --radius-card: 1rem;
+  --radius-image: 1.25rem;
+  --radius-button: 0.625rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-teal) 28%, white);
+    color: var(--color-navy);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .pattern-geo {
+    background-color: transparent;
+    background-image: url("/patterns/geo-diamond.svg");
+    background-size: 28px 28px;
+    background-repeat: repeat;
+  }
+
+  .pattern-geo-soft {
+    background-image: url("/patterns/geo-diamond.svg");
+    background-size: 28px 28px;
+    background-repeat: repeat;
+    opacity: 0.45;
+  }
+
+  .container-page {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section-pad {
+    padding-block: 4.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-pad {
+      padding-block: 6rem;
+    }
+  }
+
+  .card-surface {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
