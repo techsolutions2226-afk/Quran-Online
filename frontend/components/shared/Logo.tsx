@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils/cn";
 
@@ -11,20 +10,25 @@ export function Logo({ className, variant = "dark" }: LogoProps) {
   return (
     <Link
       href="/"
-      className={cn("inline-flex items-center", className)}
+      className={cn(
+        "inline-flex shrink-0 items-center overflow-visible",
+        className,
+      )}
       aria-label="Quran Online home"
     >
-      <Image
+      {/* Native img avoids Next/Image wrapper clipping */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src="/logo/logo-horizontal.svg"
         alt="Quran Online"
         width={220}
-        height={77}
-        priority
-        unoptimized
+        height={75}
         className={cn(
-          "h-11 w-auto md:h-12",
+          "h-10 w-auto max-w-[13rem] object-contain object-left md:h-11",
           variant === "light" && "brightness-0 invert",
         )}
+        style={{ overflow: "visible" }}
+        decoding="async"
       />
     </Link>
   );

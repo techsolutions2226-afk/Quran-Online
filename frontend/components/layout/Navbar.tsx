@@ -14,8 +14,10 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border-soft/80 bg-bg/90 backdrop-blur-md">
-      <Container className="flex h-[4.75rem] items-center justify-between gap-4">
-        <Logo />
+      <Container className="flex h-[4.75rem] items-center justify-between gap-4 overflow-visible">
+        <div className="min-w-0 shrink-0 overflow-visible">
+          <Logo />
+        </div>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
           {siteConfig.nav.map((item) => (
